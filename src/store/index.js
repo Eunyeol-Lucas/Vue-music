@@ -20,7 +20,9 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchAlbums(context, keyword) {
-      if (!keyword) return context.commit("updateAlbumList", []);
+      if (!keyword) {
+        return context.commit("updateAlbumList", []);
+      }
       const LAST_FM_ALBUM_SEARCH_URL = "https://ws.audioscrobbler.com/2.0/";
       const API_KEY = "532a93b709dc0a84f67fae3ecaa6a3a6";
       const params = {
@@ -33,6 +35,7 @@ export default new Vuex.Store({
       const response = await axios.get(LAST_FM_ALBUM_SEARCH_URL, { params });
       context.commit("toggleFetchingStatus");
       const albumList = response.data.results.albummatches.album;
+      console.log(albumList);
       context.commit("updateAlbumList", albumList);
     },
   },

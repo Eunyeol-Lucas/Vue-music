@@ -42,7 +42,6 @@ export default {
     }, 500),
     onSearch(event) {
       const keyword = event.target.value.trim();
-      if (!keyword) return;
       this.$store.dispatch("fetchAlbums", keyword);
     },
   },

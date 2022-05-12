@@ -6,6 +6,7 @@
     <p v-if="lastKeyword && !hasAlbum">
       "{{ lastKeyword }}" 앨범이 존재하지 않습니다.
     </p>
+    <TheTrigger @triggerIntersected="fetchAlbumList(keyword)" />
     <template v-if="isFetching">
       <div
         class="animate-pulse bg-gradient-to-r from-violet-100 to-violet-300 flex mb-2 rounded-md p-2"
@@ -19,7 +20,6 @@
         </div>
       </div>
     </template>
-    <TheTrigger @triggerIntersected="fetchAlbumList(keyword)" />
   </div>
 </template>
 

@@ -2,7 +2,7 @@
 
 🍀 **개발환경:** Visual Studio Code
 
-👄 **개발언어:** **html, css, JavaScript, Vue, Vuex TailwindCSS, Axios**
+👄 **개발언어:** **html, css, JavaScript, Vue, Vuex TailwindCSS, Axios**, **Lodash**
 
 **🛠 개발 도구**
 
@@ -32,7 +32,7 @@
 
 ### 4.  실시간 검색 요청
 
-- Enter 버튼 없이 사용자가 검색어를 입력하면 debounce를 통해 일정 시간 이후 자동으로 서버에 요청을 보냅니다.
+- Enter 버튼 없이 사용자가 검색어를 입력하면 **debounce**를 통해 일정 시간 이후 자동으로 서버에 요청을 보냅니다.
 
 ### 5. 무한 스크롤
 
@@ -80,13 +80,17 @@
 
 - 토글 버튼을 통해 Dark & Light 모드를 쉽게 전환할 수 있습니다.
 
-![May-12-2022 23-07-45](README.assets/May-12-2022 23-07-45.gif)
+<div align="center">
+	<img src="README.assets/May-12-2022 23-07-45.gif" width="500" />
+</div>
 
 ### 앨범이 없는 경우
 
 - 앨범이 없을 경우, 앨범이 없음을 사용자에게 알립니다.
 
-![May-12-2022 23-08-35](README.assets/May-12-2022 23-08-35.gif)
+<div align="center">
+	<img src="README.assets/May-12-2022 23-07-45.gif" width="500" />
+</div>
 
 ---
 

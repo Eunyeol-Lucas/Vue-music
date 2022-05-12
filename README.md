@@ -1,3 +1,8 @@
+<div align='center'>
+	<p>🎧</p>
+<p>	<a href="https://imaginative-cocada-fe1844.netlify.app/">음악 검색하러 가기🔗 <a>👈 </p>
+</div>
+
 ⏰ **시행 날짜:** 2022.05.12
 
 🍀 **개발환경:** Visual Studio Code
@@ -89,7 +94,7 @@
 - 앨범이 없을 경우, 앨범이 없음을 사용자에게 알립니다.
 
 <div align="center">
-	<img src="README.assets/May-12-2022 23-07-45.gif" width="500" />
+	<img src="README.assets/May-12-2022 23-08-35.gif" width="500" />
 </div>
 
 ---

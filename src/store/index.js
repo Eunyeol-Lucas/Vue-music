@@ -20,7 +20,6 @@ export default new Vuex.Store({
     },
     setKeyWord(state, keyword) {
       state.keyword = keyword;
-      console.log(state.keyword);
     },
   },
   actions: {

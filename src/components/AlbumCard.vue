@@ -9,6 +9,7 @@
       ></div>
       <img
         v-else
+        loading="lazy"
         class="h-full rounded-md hover:scale-110 transition-all ease-in-out duration-300 bg-slate-500"
         :src="album.image[1]['#text']"
         :alt="album.name"
@@ -26,10 +27,10 @@
 <script>
 export default {
   name: "AlbumCard",
-  props: {
-    album: {
-      type: Object,
-      require: false,
+  props: ["album"],
+  watch: {
+    album() {
+      console.log(this.album);
     },
   },
 };

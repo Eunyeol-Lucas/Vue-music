@@ -2,7 +2,7 @@
   <div>
     <div class="max-w-xl mx-auto my-10 px-10 relative">
       <SearchForm />
-      <AlbumList />
+      <AlbumLists />
       <DarkModeButton />
     </div>
   </div>
@@ -10,15 +10,22 @@
 
 <script>
 import SearchForm from "./components/SearchForm.vue";
-import AlbumList from "./components/AlbumList.vue";
+import AlbumLists from "./components/AlbumLists.vue";
 import DarkModeButton from "./components/DarkModeButton.vue";
 
 export default {
   name: "App",
   components: {
     SearchForm,
-    AlbumList,
+    AlbumLists,
     DarkModeButton,
+  },
+  created() {
+    if (localStorage.theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   },
 };
 </script>

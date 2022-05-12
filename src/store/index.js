@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     albumList: [],
     isFetching: false,
+    keyword: "",
   },
   getters: {},
   mutations: {
@@ -16,6 +17,10 @@ export default new Vuex.Store({
     },
     toggleFetchingStatus(state) {
       state.isFetching = !state.isFetching;
+    },
+    setKeyWord(state, keyword) {
+      state.keyword = keyword;
+      console.log(state.keyword);
     },
   },
   actions: {

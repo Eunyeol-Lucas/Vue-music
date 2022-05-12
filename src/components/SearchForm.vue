@@ -37,13 +37,17 @@ import _ from "lodash";
 export default {
   name: "SearchForm",
   methods: {
+    onSearch(event) {
+      const keyword = event.target.value;
+      this.$store.commit("setKeyWord", keyword);
+    },
     onSearchDebounce: _.debounce(function (e) {
       this.onSearch(e);
     }, 500),
-    onSearch(event) {
-      const keyword = event.target.value.trim();
-      this.$store.dispatch("fetchAlbums", keyword);
-    },
+    // onSearch(event) {
+    //   const keyword = event.target.value.trim();
+    //   this.$store.dispatch("fetchAlbums", keyword);
+    // },
   },
 };
 </script>

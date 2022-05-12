@@ -32,6 +32,7 @@ export default {
       return this.$store.state.albumList;
     },
     isFetching() {
+    
       return this.$store.state.isFetching;
     },
   },

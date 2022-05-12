@@ -50,11 +50,69 @@
 
 ## 🌏 실제 페이지
 
-## ![Screenshot-2363974](README.assets/Screenshot-2363974.png)
+### 🖥 메인 페이지
+
+<div align="center">
+ <img src="README.assets/Screenshot-2363974.png" alt="main-page" width="500"/>
+</div>
+
+
+
+### 🔎 검색어 입력
+
+- skeleton loading 을 통해 데이터를 요청 중임을 사용자에 알립니다.
+- 무한 스크롤을 통해 20개씩 데이터를 서버로 요청합니다.
+
+<div align="center">
+ <img src="README.assets/May-12-2022 23-07-26-2364660.gif" alt="main-page" />
+</div>
+
+
+
+- 검색한 앨범 중 앨범 이미지가 없는 경우, UI가 손상되지 않도록 대체 속성을 사용하였습니다.
+
+<div align="center">
+	<img src="README.assets/Screenshot-2364602.png" width="500" />
+</div>
+
+
+### Dark & Light 모드
+
+- 토글 버튼을 통해 Dark & Light 모드를 쉽게 전환할 수 있습니다.
+
+![May-12-2022 23-07-45](README.assets/May-12-2022 23-07-45.gif)
+
+### 앨범이 없는 경우
+
+- 앨범이 없을 경우, 앨범이 없음을 사용자에게 알립니다.
+
+![May-12-2022 23-08-35](README.assets/May-12-2022 23-08-35.gif)
 
 ---
 
 ## 🚨 Error
 
-- 서버에 무한정 요청이 가는 문제 발생
-- 
+- App.vue에서 SearchForm 컴포넌트와 AlbumList 컴포넌트가 동위 컴포넌트이기 때문에 SearchForm에서 App.vue에 event를 전달하고 다시 AlbumList 컴포넌트로 props 형태로 데이터를 전달하는 것보다 VueX를 활용하는 것이 이점이 있을 것이라 판단.
+- SearchForm을 통해 입력된 value를 VueX의 mutations을 호출하여 state로 keyword를 저장.
+- 이후 데이터를 요청하고 무한 스크롤을 하는 것은 전역적인 상태 관리가 필요 없기 때문에 AlbumList 컴포넌트에서 바로 수행
+- 검색어의 변화에 따라 AlbumList 컴포넌트에서 API 서버로 데이터를 요청하기를 희망하였으나, 요청이 되지 않는 문제가 발생.
+
+### 해결책
+
+- computed와 watch 속성을 이용
+- computed 속성을 통해 store의 state의 변화에 따라 state 값을 저장
+- watch 속성을 사용하여 watch 속성은 computed의 변화를 감지하고, computed가 변화할 경우에 fetchAlbumList 메서드를 실행시키며, 검색어가 변경됨에 따라 서버로 데이터 요청이 가능해짐.
+
+```javascript
+computed: {
+    keyword() {
+      return this.$store.state.keyword;
+    },
+  },
+  watch: {
+    keyword() {
+      if (!this.keyword.trim()) return this.resetAlbumList();
+      this.fetchAlbumList(this.keyword);
+    },
+```
+
